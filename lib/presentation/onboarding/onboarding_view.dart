@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tut_app/presentation/resourses/app_assets_manager.dart';
 import 'package:tut_app/presentation/resourses/color_manager.dart';
+import 'package:tut_app/presentation/resourses/consats_manager.dart';
+import 'package:tut_app/presentation/resourses/routes_manager.dart';
 import 'package:tut_app/presentation/resourses/strings_manager.dart';
 import 'package:tut_app/presentation/resourses/values_manager.dart';
 
@@ -44,6 +46,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
+        backgroundColor: ColorManager.white,
+        elevation: AppSize.s0,
         systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: ColorManager.white,
             statusBarBrightness: Brightness.dark),
@@ -64,23 +68,110 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       ),
       bottomSheet: Container(
         color: ColorManager.white,
-        height: AppSize.s100,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
-                child: const Text(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.loginRoute);
+                },
+                child: Text(
                   AppStrings.skip,
+                  style: Theme.of(context).textTheme.titleMedium,
                   textAlign: TextAlign.end,
                 ),
               ),
             ),
+            _getBottomSheet()
           ],
         ),
       ),
     );
+  }
+
+  Widget _getBottomSheet() {
+    return Container(
+      color: ColorManager.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //arrow Left
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              onTap: () {
+                _pageController.animateToPage(
+                  _getprivouspage(),
+                  duration: const Duration(
+                      microseconds: AppConestans.displayonboarding),
+                  curve: Curves.bounceInOut,
+                );
+              },
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(AppAssets.arrowiconleft),
+              ),
+            ),
+          ),
+          //circle indecator
+          Row(
+            children: [
+              for (int i = 0; i < _list.length; i++)
+                Padding(
+                  padding: const EdgeInsets.all(AppPadding.p8),
+                  child: _getProperCircle(i),
+                ),
+            ],
+          ),
+          //arrow Right
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              onTap: () {
+                _pageController.animateToPage(
+                  _getnextpage(),
+                  duration: const Duration(
+                      microseconds: AppConestans.displayonboarding),
+                  curve: Curves.bounceInOut,
+                );
+              },
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(AppAssets.arrowiconright),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  int _getprivouspage() {
+    int priviousindex = --_curntpageindex;
+    if (priviousindex == -1) {
+      priviousindex = _list.length - 1;
+    }
+    return priviousindex;
+  }
+
+  int _getnextpage() {
+    int nextindex = ++_curntpageindex;
+    if (nextindex == _list.length) {
+      nextindex = 0;
+    }
+    return nextindex;
+  }
+
+  Widget _getProperCircle(int index) {
+    if (index == _curntpageindex) {
+      return SvgPicture.asset(AppAssets.hollowCircle);
+    } else {
+      return SvgPicture.asset(AppAssets.solidCircle);
+    }
   }
 }
 

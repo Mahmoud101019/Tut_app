@@ -59,6 +59,10 @@ ThemeData getThemeApp() {
         color: ColorManager.darkgrey,
         fontsize: FontSize.s14,
       ),
+      titleMedium: getmediumStyle(
+        color: ColorManager.primary,
+        fontsize: FontSize.s16,
+      ),
       bodySmall: getRegularStyle(
         color: ColorManager.grey,
       ),

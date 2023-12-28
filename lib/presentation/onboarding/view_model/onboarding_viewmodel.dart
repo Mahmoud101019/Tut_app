@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, avoid_types_as_parameter_names
 
 import 'dart:async';
-import 'package:tut_app/domain/models.dart';
+import 'package:tut_app/domain/model/models.dart';
 import 'package:tut_app/presentation/base/baseviewmodel.dart';
 import 'package:tut_app/presentation/resourses/app_assets_manager.dart';
 import 'package:tut_app/presentation/resourses/strings_manager.dart';

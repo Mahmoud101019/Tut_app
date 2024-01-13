@@ -13,8 +13,8 @@ class AppStrings {
   static const onboardingsubtitle4 =
       'Tut app is an awesome flutter application using clean architecture #4';
   static const skip = 'skip';
-  static const String success = "success";
   // error handler
+  static const String success = "success";
   static const String badRequestError = "bad_request_error";
   static const String noContent = "no_content";
   static const String forbiddenError = "forbidden_error";
@@ -28,4 +28,14 @@ class AppStrings {
   static const String defaultError = "default_error";
   static const String cacheError = "cache_error";
   static const String noInternetError = "no_internet_error";
+  //////////////////////////////
+  ///Login Strings
+  static const String hintusername = "UserName";
+  static const String hintpassword = "Password";
+  static const String loginString = "Login";
+  static const String forgetPassword = "Forget Password";
+  static const String notamember = "Not a member ?Signup";
+  //Error TextFormFaild
+  static const String usernameError = "Please Enter Your Email";
+  static const String passwordError = "Please Enter Your Password";
 }

@@ -10,4 +10,5 @@ class AppAssets {
   static const String arrowiconright = '$imagepath/arrow_icon_right.svg';
   static const String hollowCircle = '$imagepath/hollow.svg';
   static const String solidCircle = '$imagepath/solid.svg';
+  static const String loginlogo = '$imagepath/splash_logo.png';
 }

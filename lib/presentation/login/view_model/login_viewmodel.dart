@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:tut_app/domain/usecase/login_usecase.dart';
 import 'package:tut_app/presentation/base/baseviewmodel.dart';
 import 'package:tut_app/presentation/common/freezed_data_classes.dart';
 
@@ -14,10 +15,9 @@ class LoginViewModel extends BaseViewModel
 
   var loginObject = LoginObject("", "");
 
-  // final LoginUseCase loginUseCase;
+  final LoginUseCase loginUseCase;
 
-  // LoginViewModel({required this.loginUseCase});
-  // LoginViewModel({required this.loginUseCase});
+  LoginViewModel({required this.loginUseCase});
   //inputs
 
   @override

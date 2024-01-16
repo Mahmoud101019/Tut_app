@@ -38,4 +38,8 @@ class AppStrings {
   //Error TextFormFaild
   static const String usernameError = "Please Enter Your Email";
   static const String passwordError = "Please Enter Your Password";
+  //
+  static const String loading = "Loading....";
+  static const String retryAgain = "Retry Again....";
+  static const String ok = "Ok";
 }

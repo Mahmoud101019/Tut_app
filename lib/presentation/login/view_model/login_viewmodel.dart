@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:tut_app/domain/usecase/login_usecase.dart';
 import 'package:tut_app/presentation/base/baseviewmodel.dart';
 import 'package:tut_app/presentation/common/freezed_data_classes.dart';
+import 'package:tut_app/presentation/common/state_renderer/state_renderer.dart';
+import 'package:tut_app/presentation/common/state_renderer/state_renderer_impl.dart';
 
 class LoginViewModel extends BaseViewModel
     implements LoginViewModelInputs, LoginViewModelOutputs {
@@ -22,13 +24,18 @@ class LoginViewModel extends BaseViewModel
 
   @override
   void dispose() {
+    super.dispose();
     usernameStreamController.close();
     passwordStreamController.close();
     areAllInputsValid.close();
   }
 
   @override
-  void start() {}
+  void start() {
+    //view model should tell view please show content state
+
+    inPutState.add(ContentState());
+  }
 
   @override
   Sink get inputusername => usernameStreamController.sink;
@@ -55,16 +62,21 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
+    inPutState.add(
+        LoadingState(stateRendererType: StateRendererType.popupLoadingState));
     (await loginUseCase.execute(LoginUseCaseInput(
             email: loginObject.username, password: loginObject.password)))
         .fold(
             (failure) => {
-                  //left
-                  print(failure.msg)
+                  //left failure
+                  inPutState.add(ErrorState(
+                      stateRendererType: StateRendererType.popupErrorState,
+                      message: failure.msg))
                 },
             (data) => {
-                  //right
-                  print(data.customer?.name)
+                  //right content State
+                  inPutState.add(ContentState())
+                  //navigator to Main Screen
                 });
   }
 

@@ -15,6 +15,9 @@ class LoginViewModel extends BaseViewModel
 
   final StreamController areAllInputsValid = StreamController<void>.broadcast();
 
+  final StreamController isUserLoginSuccessfullyStreamController =
+      StreamController<bool>();
+
   var loginObject = LoginObject("", "");
 
   final LoginUseCase loginUseCase;
@@ -28,6 +31,7 @@ class LoginViewModel extends BaseViewModel
     usernameStreamController.close();
     passwordStreamController.close();
     areAllInputsValid.close();
+    isUserLoginSuccessfullyStreamController.close();
   }
 
   @override
@@ -72,12 +76,12 @@ class LoginViewModel extends BaseViewModel
                   inPutState.add(ErrorState(
                       stateRendererType: StateRendererType.popupErrorState,
                       message: failure.msg))
-                },
-            (data) => {
-                  //right content State
-                  inPutState.add(ContentState())
-                  //navigator to Main Screen
-                });
+                }, (data) {
+      //right content State
+      inPutState.add(ContentState());
+      //navigator to Main Screen
+      isUserLoginSuccessfullyStreamController.add(true);
+    });
   }
 
   //Outputs

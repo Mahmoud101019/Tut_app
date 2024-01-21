@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:tut_app/app/app_prefs.dart';
 import 'package:tut_app/app/di.dart';
 import 'package:tut_app/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:tut_app/presentation/login/view_model/login_viewmodel.dart';
@@ -19,6 +21,8 @@ class _LoginViewState extends State<LoginView> {
   final LoginViewModel viewmodel = instance<LoginViewModel>();
   final TextEditingController usernamecontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
+  final AppPreferences appPreferences = instance<AppPreferences>();
+
   final formkey = GlobalKey<FormState>();
   bind() {
     viewmodel.start();
@@ -28,6 +32,16 @@ class _LoginViewState extends State<LoginView> {
     passwordcontroller.addListener(
       () => viewmodel.setpaswword(passwordcontroller.text),
     );
+    viewmodel.isUserLoginSuccessfullyStreamController.stream
+        .listen((isLoggedIn) {
+      if (isLoggedIn) {
+        //navigator to main screen
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+          appPreferences.setUserLoggedIn();
+          Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
+        });
+      }
+    });
   }
 
   @override

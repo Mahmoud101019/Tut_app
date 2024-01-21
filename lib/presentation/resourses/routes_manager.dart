@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tut_app/app/di.dart';
-import 'package:tut_app/presentation/forgetpassword/forgetpassword_view.dart';
+import 'package:tut_app/presentation/forgetpassword/view/forgetpassword_view.dart';
 import 'package:tut_app/presentation/login/view/login_view.dart';
 import 'package:tut_app/presentation/main/main_view.dart';
 import 'package:tut_app/presentation/onboarding/view/onboarding_view.dart';

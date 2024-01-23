@@ -66,6 +66,17 @@ class EmptyState extends FlowState {
   StateRendererType getStateRendererType() =>
       StateRendererType.fullScreenEmptyState;
 }
+//Success State (POPUP , FULL SCREEN)
+
+class SuccessState extends FlowState {
+  String message;
+  SuccessState({required this.message});
+  @override
+  String getMessage() => message;
+
+  @override
+  StateRendererType getStateRendererType() => StateRendererType.popupSuccess;
+}
 
 extension FlowStateextension on FlowState {
   Widget getScreenWidget(
@@ -120,6 +131,17 @@ extension FlowStateextension on FlowState {
           dismissDialog(context);
           return contentScreenWidget;
         }
+      case SuccessState:
+        {
+          dismissDialog(context);
+          showPopupDialog(
+            context,
+            StateRendererType.popupSuccess,
+            getMessage(),
+            title: AppStrings.successs,
+          );
+          return contentScreenWidget;
+        }
       default:
         {
           dismissDialog(context);
@@ -138,10 +160,8 @@ extension FlowStateextension on FlowState {
   }
 
   showPopupDialog(
-    BuildContext context,
-    StateRendererType stateRendererType,
-    String message,
-  ) {
+      BuildContext context, StateRendererType stateRendererType, String message,
+      {String title = Constants.empty}) {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => showDialog(
         context: context,

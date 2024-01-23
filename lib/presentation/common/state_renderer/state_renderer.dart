@@ -59,12 +59,18 @@ class StateRenderer extends StatelessWidget {
           ],
         );
       case StateRendererType.popupSuccess:
-        return getItemsColumn([]);
+        return getPopUpDilalog(context, [
+          getAnimatedImage(JsonAssets.success),
+          getMsg(title),
+          getMsg(msg),
+          getRetryButton(AppStrings.ok, context),
+        ]);
       case StateRendererType.fullScreenLoadingState:
         return getItemsColumn(
           [
             getAnimatedImage(JsonAssets.loading),
             getMsg(msg),
+            getRetryButton(AppStrings.ok, context)
           ],
         );
       case StateRendererType.fullScreenErrorState:

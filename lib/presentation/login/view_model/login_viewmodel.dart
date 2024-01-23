@@ -70,15 +70,16 @@ class LoginViewModel extends BaseViewModel
         LoadingState(stateRendererType: StateRendererType.popupLoadingState));
     (await loginUseCase.execute(LoginUseCaseInput(
             email: loginObject.username, password: loginObject.password)))
-        .fold(
-            (failure) => {
-                  //left failure
-                  inPutState.add(ErrorState(
-                      stateRendererType: StateRendererType.popupErrorState,
-                      message: failure.msg))
-                }, (data) {
+        .fold((failure) {
+      //left failure
+      inPutState.add(ErrorState(
+          stateRendererType: StateRendererType.popupErrorState,
+          message: failure.msg));
+      print("Faild");
+    }, (data) {
       //right content State
       inPutState.add(ContentState());
+      print("Good");
       //navigator to Main Screen
       isUserLoginSuccessfullyStreamController.add(true);
     });

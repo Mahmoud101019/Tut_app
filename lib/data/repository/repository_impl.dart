@@ -40,4 +40,32 @@ class RepositoryImpl implements Repository {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, String>> forgotPassword(String email) async {
+    if (await networkInfo.isConnected) {
+      try {
+        // its safe to call API
+        final response = await remoteDataSource.forgotPassword(email);
+
+        if (response.status == ApiInternelStatus.SUCCESS) {
+          // success
+          // return right
+          return Right(response.toDomain());
+        } else {
+          // failure
+          // return left
+          return Left(Failure(
+              code: response.status ?? ResponseCode.DEFAULT,
+              msg: response.messages ?? ResponseMessage.DEFAULT));
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      // return network connection error
+      // return left
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
 }

@@ -162,7 +162,7 @@ class _LoginViewState extends State<LoginView> {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
+                          Navigator.pushNamed(
                               context, Routes.forgetpasswordRoute);
                         },
                         child: Text(
@@ -174,8 +174,7 @@ class _LoginViewState extends State<LoginView> {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context, Routes.signupRoute);
+                          Navigator.pushNamed(context, Routes.signupRoute);
                         },
                         child: Text(
                           AppStrings.notamember,

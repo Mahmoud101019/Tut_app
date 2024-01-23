@@ -23,8 +23,8 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
 
   bind() {
     viewModel.start();
-    emailTextEditingController
-        .addListener(() => viewModel.setEmail(emailTextEditingController.text));
+    emailTextEditingController.addListener(
+        () => viewModel.setEmail(emailTextEditingController.text.trim()));
   }
 
   @override

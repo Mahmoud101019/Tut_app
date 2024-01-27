@@ -48,4 +48,21 @@ class AppStrings {
   static const String resetPassword = "Reset Password";
   //
   static const String successs = "Success";
+  //
+  static const String userNameValid = "InValid UserName Must Be 8";
+  static const String emailValid = "InValid Email";
+  static const String mobileNumberValid = "InValid Mobile Number";
+  static const String passwordValid = "Password Must be 8";
+  static const String alreadyhaveanaccount = "Already have an account ? Login";
+  static const String signUp = "Signup";
+  //Sign Up String Text Form Faild Hints
+  static const String hintusernameSignUp = "UserName";
+  static const String hintMobileNumberSignUp = "Mobile number";
+  static const String hintEmailSignUp = "Email";
+  static const String hintPasswordSignUp = "Password";
+  static const String hintProflepictureSignUp = "Profle picture";
+  //
+    static const String photocamera = "Pgoto From Camera";
+    static const String photogallery = "Pgoto From gallery";
+
 }

@@ -15,6 +15,8 @@ class RepositoryImpl implements Repository {
     required this.remoteDataSource,
     required this.networkInfo,
   });
+
+  //Login
   @override
   Future<Either<Failure, Authentication>> login(
       LoginRequest loginRequest) async {
@@ -41,6 +43,7 @@ class RepositoryImpl implements Repository {
     }
   }
 
+  //ForGetPassword
   @override
   Future<Either<Failure, String>> forgotPassword(String email) async {
     if (await networkInfo.isConnected) {
@@ -66,6 +69,33 @@ class RepositoryImpl implements Repository {
       // return network connection error
       // return left
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
+
+  //SignUp
+  @override
+  Future<Either<Failure, Authentication>> signup(
+      SignupRequest signupRequest) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remoteDataSource.signup(signupRequest);
+        if (response.status == ApiInternelStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          return left(
+            Failure(
+              code: ApiInternelStatus.Failure,
+              msg: response.messages ?? ResponseMessage.DEFAULT,
+            ),
+          );
+        }
+      } catch (error) {
+        return left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return left(
+        DataSource.NO_INTERNET_CONNECTION.getFailure(),
+      );
     }
   }
 }

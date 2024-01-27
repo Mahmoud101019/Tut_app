@@ -75,11 +75,9 @@ class LoginViewModel extends BaseViewModel
       inPutState.add(ErrorState(
           stateRendererType: StateRendererType.popupErrorState,
           message: failure.msg));
-      print("Faild");
     }, (data) {
       //right content State
       inPutState.add(ContentState());
-      print("Good");
       //navigator to Main Screen
       isUserLoginSuccessfullyStreamController.add(true);
     });

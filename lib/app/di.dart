@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tut_app/app/app_prefs.dart';
@@ -11,8 +12,10 @@ import 'package:tut_app/data/repository/repository_impl.dart';
 import 'package:tut_app/domain/repositroy/repository.dart';
 import 'package:tut_app/domain/usecase/forgetpassword_use_case.dart';
 import 'package:tut_app/domain/usecase/login_usecase.dart';
+import 'package:tut_app/domain/usecase/signup_use_case.dart';
 import 'package:tut_app/presentation/forgetpassword/view_model/forgetpassword_view_model.dart';
 import 'package:tut_app/presentation/login/view_model/login_viewmodel.dart';
+import 'package:tut_app/presentation/signup/view_model/signup_view_model.dart';
 
 final instance = GetIt.instance;
 
@@ -79,17 +82,14 @@ initForgotPasswordModule() {
   }
 }
 
-// initForgotPasswordModule() {
-//   if (!GetIt.I.isRegistered<ForgotPasswordUseCase>()) {
-//     //ForgetPaswwordUseCase instance
-
-//     instance.registerFactory<ForgotPasswordUseCase>(
-//         () => ForgotPasswordUseCase(repository: instance<Repository>()));
-
-//     //ForgetPasswordViewModel instance
-
-//     instance.registerFactory<ForgotPasswordViewModel>(() =>
-//         ForgotPasswordViewModel(
-//             forgotPasswordUseCase: instance<ForgotPasswordUseCase>()));
-//   }
-// }
+initSignUpModule() {
+  if (!GetIt.I.isRegistered<SignUpUseCase>()) {
+    instance.registerFactory<SignUpUseCase>(
+        () => SignUpUseCase(repository: instance()));
+    instance.registerFactory<SignUpViewModel>(
+        () => SignUpViewModel(signUpUseCase: instance()));
+    instance.registerFactory<ImagePicker>(
+      () => ImagePicker(),
+    );
+  }
+}

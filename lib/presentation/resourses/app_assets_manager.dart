@@ -13,6 +13,8 @@ class AppAssets {
   static const String solidCircle = '$imagepath/solid.svg';
   static const String loginlogo = '$imagepath/splash_logo.png';
   static const String forgetpasswordLogo = '$imagepath/splash_logo.png';
+  static const String signUplogo = '$imagepath/splash_logo.png';
+  static const String photoCamera = '$imagepath/photo-camera.svg';
 }
 
 class JsonAssets {

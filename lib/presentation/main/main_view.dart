@@ -35,7 +35,7 @@ class _MainViewState extends State<MainView> {
     return Scaffold(
       appBar: AppBar(
         elevation: AppSize.s0,
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         title: Text(
           title,
           style: Theme.of(context).textTheme.titleSmall,

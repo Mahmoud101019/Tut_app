@@ -34,6 +34,7 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: AppSize.s0,
         automaticallyImplyLeading: false,
         title: Text(
           title,

@@ -62,7 +62,11 @@ class AppStrings {
   static const String hintPasswordSignUp = "Password";
   static const String hintProflepictureSignUp = "Profle picture";
   //
-    static const String photocamera = "Pgoto From Camera";
-    static const String photogallery = "Pgoto From gallery";
-
+  static const String photocamera = "Pgoto From Camera";
+  static const String photogallery = "Pgoto From gallery";
+  //
+  static const String home = "home";
+  static const String search = "search";
+  static const String settings = "Settings";
+  static const String notifications = "Notifications";
 }

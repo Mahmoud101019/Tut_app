@@ -83,3 +83,123 @@ class ForgotPasswordResponse extends BaseResponse {
   factory ForgotPasswordResponse.fromJson(Map<String, dynamic> json) =>
       _$ForgotPasswordResponseFromJson(json);
 }
+
+@JsonSerializable()
+class ServicesResponse {
+  @JsonKey(name: 'id')
+  String? id;
+
+  @JsonKey(name: 'title')
+  String? title;
+
+  @JsonKey(name: 'image')
+  String? image;
+
+  ServicesResponse({
+    required this.id,
+    required this.title,
+    required this.image,
+  });
+
+// toJson
+  Map<String, dynamic> toJson() => _$ServicesResponseToJson(this);
+
+//fromJson
+  factory ServicesResponse.fromJson(Map<String, dynamic> json) =>
+      _$ServicesResponseFromJson(json);
+}
+
+@JsonSerializable()
+class BannersResponse {
+  @JsonKey(name: 'id')
+  String? id;
+
+  @JsonKey(name: 'link')
+  String? link;
+
+  @JsonKey(name: 'title')
+  String? title;
+
+  @JsonKey(name: 'image')
+  String? image;
+
+  BannersResponse(
+      {required this.id,
+      required this.link,
+      required this.title,
+      required this.image});
+
+  // toJson
+  Map<String, dynamic> toJson() => _$BannersResponseToJson(this);
+
+//fromJson
+  factory BannersResponse.fromJson(Map<String, dynamic> json) =>
+      _$BannersResponseFromJson(json);
+}
+
+@JsonSerializable()
+class StoresResponse {
+  @JsonKey(name: 'id')
+  String? id;
+
+  @JsonKey(name: 'title')
+  String? title;
+
+  @JsonKey(name: 'image')
+  String? image;
+
+  StoresResponse({
+    required this.id,
+    required this.title,
+    required this.image,
+  });
+
+// toJson
+  Map<String, dynamic> toJson() => _$StoresResponseToJson(this);
+
+//fromJson
+  factory StoresResponse.fromJson(Map<String, dynamic> json) =>
+      _$StoresResponseFromJson(json);
+}
+
+@JsonSerializable()
+class HomeDataResponse {
+  @JsonKey(name: 'services')
+  List<ServicesResponse>? services;
+
+  @JsonKey(name: 'banners')
+  List<BannersResponse>? banners;
+
+  @JsonKey(name: 'stores')
+  List<StoresResponse>? stores;
+
+  HomeDataResponse({
+    required this.stores,
+    required this.banners,
+    required this.services,
+  });
+
+  // toJson
+  Map<String, dynamic> toJson() => _$HomeDataResponseToJson(this);
+
+//fromJson
+  factory HomeDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$HomeDataResponseFromJson(json);
+}
+
+@JsonSerializable()
+class HomeResponse extends BaseResponse {
+  @JsonKey(name: 'data')
+  HomeDataResponse? data;
+
+  HomeResponse({
+    required this.data,
+  });
+
+  // toJson
+  Map<String, dynamic> toJson() => _$HomeResponseToJson(this);
+
+//fromJson
+  factory HomeResponse.fromJson(Map<String, dynamic> json) =>
+      _$HomeResponseFromJson(json);
+}

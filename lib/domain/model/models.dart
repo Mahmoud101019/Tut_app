@@ -55,3 +55,61 @@ class Authentication {
     required this.contacts,
   });
 }
+
+class Services {
+  String id;
+  String title;
+  String image;
+
+  Services({
+    required this.id,
+    required this.title,
+    required this.image,
+  });
+}
+
+class BannersAd {
+  String id;
+  String link;
+  String title;
+  String image;
+
+  BannersAd({
+    required this.id,
+    required this.link,
+    required this.title,
+    required this.image,
+  });
+}
+
+class Stores {
+  String id;
+  String title;
+  String image;
+
+  Stores({
+    required this.id,
+    required this.title,
+    required this.image,
+  });
+}
+
+class HomeData {
+  List<Services> services;
+  List<BannersAd> banners;
+  List<Stores> stores;
+
+  HomeData({
+    required this.services,
+    required this.banners,
+    required this.stores,
+  });
+}
+
+class HomeObject {
+  HomeData data;
+
+  HomeObject({
+    required this.data,
+  });
+}

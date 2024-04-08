@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tut_app/presentation/main/pages/home_view.dart';
-import 'package:tut_app/presentation/main/pages/notifications_view.dart';
-import 'package:tut_app/presentation/main/pages/search_view.dart';
-import 'package:tut_app/presentation/main/pages/settings_view.dart';
+import 'package:tut_app/presentation/main/pages/home/view/home_view.dart';
+import 'package:tut_app/presentation/main/pages/notifications/view/notifications_view.dart';
+import 'package:tut_app/presentation/main/pages/search/view/search_view.dart';
+import 'package:tut_app/presentation/main/pages/settings/view/settings_view.dart';
 import 'package:tut_app/presentation/resourses/color_manager.dart';
 import 'package:tut_app/presentation/resourses/strings_manager.dart';
 import 'package:tut_app/presentation/resourses/values_manager.dart';

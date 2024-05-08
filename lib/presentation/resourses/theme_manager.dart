@@ -70,6 +70,14 @@ ThemeData getThemeApp() {
       bodySmall: getRegularStyle(
         color: ColorManager.grey,
       ),
+      labelSmall: getBoldStyle(
+        color: ColorManager.primary,
+        fontsize: FontSize.s12,
+      ),
+      headlineSmall: getRegularStyle(
+        color: ColorManager.grey2,
+        fontsize: FontSize.s12,
+      ),
     ),
     //input decoration theme (Text Form Faild)
 

@@ -57,7 +57,7 @@ class Authentication {
 }
 
 class Services {
-  String id;
+  int id;
   String title;
   String image;
 
@@ -69,7 +69,7 @@ class Services {
 }
 
 class BannersAd {
-  String id;
+  int id;
   String link;
   String title;
   String image;
@@ -83,7 +83,7 @@ class BannersAd {
 }
 
 class Stores {
-  String id;
+  int id;
   String title;
   String image;
 

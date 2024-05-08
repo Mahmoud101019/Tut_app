@@ -70,7 +70,6 @@ class StateRenderer extends StatelessWidget {
           [
             getAnimatedImage(JsonAssets.loading),
             getMsg(msg),
-            getRetryButton(AppStrings.ok, context)
           ],
         );
       case StateRendererType.fullScreenErrorState:

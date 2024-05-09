@@ -48,26 +48,31 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget getContentWidget() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        getBanners(),
-        getSection(AppStrings.services),
-        getServices(),
-        getSection(AppStrings.store),
-        getStores(),
-      ],
-    );
-  }
-
-  Widget getBanners() {
-    return StreamBuilder<List<BannersAd>>(
-      stream: homeViewModel.outputBanners,
+    return StreamBuilder(
+      stream: homeViewModel.outputHomeData,
       builder: (context, snapshot) {
-        return getbannerWidget(snapshot.data);
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            getbannerWidget(snapshot.data?.banners),
+            getSection(AppStrings.services),
+            getServicesWidget(snapshot.data?.services),
+            getSection(AppStrings.store),
+            getStoresWidget(snapshot.data?.stores),
+          ],
+        );
       },
     );
   }
+
+  // Widget getBanners() {
+  //   return StreamBuilder<List<BannersAd>>(
+  //     stream: homeViewModel.outputBanners,
+  //     builder: (context, snapshot) {
+  //       return getbannerWidget(snapshot.data);
+  //     },
+  //   );
+  // }
 
   Widget getbannerWidget(List<BannersAd>? banners) {
     if (banners != null) {
@@ -121,14 +126,14 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget getServices() {
-    return StreamBuilder<List<Services>>(
-      stream: homeViewModel.outputServices,
-      builder: (context, snapshot) {
-        return getServicesWidget(snapshot.data);
-      },
-    );
-  }
+  // Widget getServices() {
+  //   return StreamBuilder<List<Services>>(
+  //     stream: homeViewModel.outputServices,
+  //     builder: (context, snapshot) {
+  //       return getServicesWidget(snapshot.data);
+  //     },
+  //   );
+  // }
 
   Widget getServicesWidget(List<Services>? services) {
     if (services != null) {
@@ -189,14 +194,14 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
-  Widget getStores() {
-    return StreamBuilder<List<Stores>>(
-      stream: homeViewModel.outputStores,
-      builder: (context, snapshot) {
-        return getStoresWidget(snapshot.data);
-      },
-    );
-  }
+  // Widget getStores() {
+  //   return StreamBuilder<List<Stores>>(
+  //     stream: homeViewModel.outputStores,
+  //     builder: (context, snapshot) {
+  //       return getStoresWidget(snapshot.data);
+  //     },
+  //   );
+  // }
 
   Widget getStoresWidget(List<Stores>? stores) {
     if (stores != null) {

@@ -65,15 +65,6 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  // Widget getBanners() {
-  //   return StreamBuilder<List<BannersAd>>(
-  //     stream: homeViewModel.outputBanners,
-  //     builder: (context, snapshot) {
-  //       return getbannerWidget(snapshot.data);
-  //     },
-  //   );
-  // }
-
   Widget getbannerWidget(List<BannersAd>? banners) {
     if (banners != null) {
       return CarouselSlider(
@@ -125,15 +116,6 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
-  // Widget getServices() {
-  //   return StreamBuilder<List<Services>>(
-  //     stream: homeViewModel.outputServices,
-  //     builder: (context, snapshot) {
-  //       return getServicesWidget(snapshot.data);
-  //     },
-  //   );
-  // }
 
   Widget getServicesWidget(List<Services>? services) {
     if (services != null) {
@@ -193,15 +175,6 @@ class _HomeViewState extends State<HomeView> {
       return Container();
     }
   }
-
-  // Widget getStores() {
-  //   return StreamBuilder<List<Stores>>(
-  //     stream: homeViewModel.outputStores,
-  //     builder: (context, snapshot) {
-  //       return getStoresWidget(snapshot.data);
-  //     },
-  //   );
-  // }
 
   Widget getStoresWidget(List<Stores>? stores) {
     if (stores != null) {

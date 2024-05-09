@@ -38,9 +38,11 @@ class HomeViewModel extends BaseViewModel
     }, (homeObject) {
       //right content State
       inPutState.add(ContentState());
-      inputHomeData.add(HomeViewObject(homeObject.data.stores,
-          homeObject.data.services, homeObject.data.banners));
-      //navigator to Main Screen
+      inputHomeData.add(HomeViewObject(
+        homeObject.data.stores,
+        homeObject.data.services,
+        homeObject.data.banners,
+      ));
     });
   }
 

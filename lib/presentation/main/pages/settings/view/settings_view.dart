@@ -54,7 +54,7 @@ class _SettingsViewState extends State<SettingsView> {
             onTap: () {},
             leading: SvgPicture.asset(AppAssets.inviteFriends),
             title: Text(
-              AppStrings.inviteFriends,
+              AppStrings.inviteYourFriends,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             trailing: SvgPicture.asset(AppAssets.arrowGoRight),

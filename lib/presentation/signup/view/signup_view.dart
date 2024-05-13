@@ -121,8 +121,8 @@ class _SignUpViewState extends State<SignUpView> {
                       keyboardType: TextInputType.name,
                       controller: userNameController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.hintusernameSignUp,
-                        labelText: AppStrings.hintusernameSignUp,
+                        hintText: AppStrings.username,
+                        labelText: AppStrings.username,
                         errorText: snapshot.data,
                       ),
                     );
@@ -171,8 +171,8 @@ class _SignUpViewState extends State<SignUpView> {
                                 keyboardType: TextInputType.phone,
                                 controller: mobileNumberController,
                                 decoration: InputDecoration(
-                                  hintText: AppStrings.hintMobileNumberSignUp,
-                                  labelText: AppStrings.hintMobileNumberSignUp,
+                                  hintText: AppStrings.mobileNumber,
+                                  labelText: AppStrings.mobileNumber,
                                   errorText: snapshot.data,
                                 ),
                               );
@@ -201,8 +201,8 @@ class _SignUpViewState extends State<SignUpView> {
                       keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.hintEmailSignUp,
-                        labelText: AppStrings.hintEmailSignUp,
+                        hintText: AppStrings.emailHint,
+                        labelText: AppStrings.emailHint,
                         errorText: snapshot.data,
                       ),
                     );
@@ -225,8 +225,8 @@ class _SignUpViewState extends State<SignUpView> {
                       keyboardType: TextInputType.visiblePassword,
                       controller: passwordController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.hintPasswordSignUp,
-                        labelText: AppStrings.hintPasswordSignUp,
+                        hintText: AppStrings.password,
+                        labelText: AppStrings.password,
                         errorText: snapshot.data,
                       ),
                     );
@@ -281,7 +281,7 @@ class _SignUpViewState extends State<SignUpView> {
                                 viewmodel.signUp();
                               }
                             : null,
-                        child: const Text(AppStrings.signUp),
+                        child: const Text(AppStrings.register),
                       ),
                     );
                   },
@@ -299,7 +299,7 @@ class _SignUpViewState extends State<SignUpView> {
                     Navigator.of(context).pop();
                   },
                   child: Text(
-                    AppStrings.alreadyhaveanaccount,
+                    AppStrings.alreadyHaveAccount,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
@@ -318,7 +318,7 @@ class _SignUpViewState extends State<SignUpView> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Flexible(
-            child: Text(AppStrings.hintProflepictureSignUp),
+            child: Text(AppStrings.profilePicture),
           ),
           Flexible(
             child: StreamBuilder<File>(
@@ -356,7 +356,7 @@ class _SignUpViewState extends State<SignUpView> {
             ListTile(
               trailing: const Icon(Icons.arrow_forward),
               leading: const Icon(Icons.camera),
-              title: const Text(AppStrings.photogallery),
+              title: const Text(AppStrings.photoGallery),
               onTap: () {
                 imageformgallery();
                 Navigator.of(context).pop();
@@ -365,7 +365,7 @@ class _SignUpViewState extends State<SignUpView> {
             ListTile(
               trailing: const Icon(Icons.arrow_forward),
               leading: const Icon(Icons.camera_alt),
-              title: const Text(AppStrings.photocamera),
+              title: const Text(AppStrings.photoCamera),
               onTap: () {
                 imageformCamera();
                 Navigator.of(context).pop();

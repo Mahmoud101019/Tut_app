@@ -57,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
             getbannerWidget(snapshot.data?.banners),
             getSection(AppStrings.services),
             getServicesWidget(snapshot.data?.services),
-            getSection(AppStrings.store),
+            getSection(AppStrings.stores),
             getStoresWidget(snapshot.data?.stores),
           ],
         );

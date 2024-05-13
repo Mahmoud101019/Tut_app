@@ -95,8 +95,8 @@ class _LoginViewState extends State<LoginView> {
                       keyboardType: TextInputType.emailAddress,
                       controller: usernamecontroller,
                       decoration: InputDecoration(
-                        hintText: AppStrings.hintusername,
-                        labelText: AppStrings.hintusername,
+                        hintText: AppStrings.username,
+                        labelText: AppStrings.username,
                         errorText: (snapshot.data ?? true)
                             ? null
                             : AppStrings.usernameError,
@@ -118,8 +118,8 @@ class _LoginViewState extends State<LoginView> {
                       keyboardType: TextInputType.visiblePassword,
                       controller: passwordcontroller,
                       decoration: InputDecoration(
-                        hintText: AppStrings.hintpassword,
-                        labelText: AppStrings.hintpassword,
+                        hintText: AppStrings.password,
+                        labelText: AppStrings.password,
                         errorText: (snapshot.data ?? true)
                             ? null
                             : AppStrings.passwordError,
@@ -146,7 +146,7 @@ class _LoginViewState extends State<LoginView> {
                                 viewmodel.login();
                               }
                             : null,
-                        child: const Text(AppStrings.loginString),
+                        child: const Text(AppStrings.login),
                       ),
                     );
                   },
@@ -177,7 +177,7 @@ class _LoginViewState extends State<LoginView> {
                           Navigator.pushNamed(context, Routes.signupRoute);
                         },
                         child: Text(
-                          AppStrings.notamember,
+                          AppStrings.registerText,
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                       ),

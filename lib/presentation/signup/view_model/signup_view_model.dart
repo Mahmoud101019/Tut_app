@@ -193,7 +193,7 @@ class SignUpViewModel extends BaseViewModel
 
   @override
   Stream<String?> get outPutErrorUserName => outPutIsUserNameValid.map(
-      (isUserNameValid) => isUserNameValid ? null : AppStrings.userNameValid);
+      (isUserNameValid) => isUserNameValid ? null : AppStrings.userNameInvalid);
 
   ////////////////////////////Email Output/////////////////////////////////////
 
@@ -203,7 +203,7 @@ class SignUpViewModel extends BaseViewModel
 
   @override
   Stream<String?> get outPutErrorEmail => outPutIsEmailValid
-      .map((isEmailvalid) => isEmailvalid ? null : AppStrings.emailValid);
+      .map((isEmailvalid) => isEmailvalid ? null : AppStrings.invalidEmail);
 
   ////////////////////////////Mobile Output/////////////////////////////////////
 
@@ -215,7 +215,7 @@ class SignUpViewModel extends BaseViewModel
   @override
   Stream<String?> get outPutErrorMobileNumber =>
       outPutIsMobileNumberValid.map((isMobileValidValid) =>
-          isMobileValidValid ? null : AppStrings.mobileNumberValid);
+          isMobileValidValid ? null : AppStrings.mobileNumberInvalid);
 
   ////////////////////////////Password Output/////////////////////////////////////
 
@@ -226,7 +226,7 @@ class SignUpViewModel extends BaseViewModel
   @override
   Stream<String?> get outPutErrorPassword =>
       outPutIsPasswordValid.map((isPasswordValidValid) =>
-          isPasswordValidValid ? null : AppStrings.passwordValid);
+          isPasswordValidValid ? null : AppStrings.passwordInvalid);
 
   ////////////////////////////Profile Picture Output/////////////////////////////////////
 

@@ -138,7 +138,7 @@ extension FlowStateextension on FlowState {
             context,
             StateRendererType.popupSuccess,
             getMessage(),
-            title: AppStrings.successs,
+            title: AppStrings.success,
           );
           return contentScreenWidget;
         }

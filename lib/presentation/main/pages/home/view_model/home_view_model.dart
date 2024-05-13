@@ -33,8 +33,9 @@ class HomeViewModel extends BaseViewModel
     (await homeUseCase.execute(Void)).fold((failure) {
       //left failure
       inPutState.add(ErrorState(
-          stateRendererType: StateRendererType.fullScreenErrorState,
-          message: failure.msg));
+        stateRendererType: StateRendererType.fullScreenErrorState,
+        message: failure.msg,
+      ));
     }, (homeObject) {
       //right content State
       inPutState.add(ContentState());

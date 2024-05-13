@@ -88,6 +88,11 @@ flutter:
     - assets/images/hollow.svg
     - assets/images/solid.svg
     - assets/images/photo-camera.svg
+    - assets/images/contact us.svg
+    - assets/images/invite friends.svg
+    - assets/images/logout.svg
+    - assets/images/Right Detail.svg
+    - assets/images/settings.svg
     - assets/json/empty.json
     - assets/json/error.json
     - assets/json/loading.json

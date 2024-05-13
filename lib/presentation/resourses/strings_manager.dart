@@ -73,8 +73,14 @@ class AppStrings {
   static const String services = "Services";
   static const String store = "Stores";
 
-  // Stroe Details
+  // Stroe Details Screen
   static const String details = "Details";
   static const String about = "About Store";
   static const String storeDetails = "Store details";
+
+  //Settings Screen
+  static const String logout = "logout";
+  static const String inviteFriends = "Invite Your Friends";
+  static const String contactUs = "contact us";
+  static const String changeLanguage = "Change language";
 }

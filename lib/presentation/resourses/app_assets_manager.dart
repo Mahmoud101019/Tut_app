@@ -15,6 +15,11 @@ class AppAssets {
   static const String forgetpasswordLogo = '$imagepath/splash_logo.png';
   static const String signUplogo = '$imagepath/splash_logo.png';
   static const String photoCamera = '$imagepath/photo-camera.svg';
+  static const String contactUs = '$imagepath/contact us.svg';
+  static const String inviteFriends = '$imagepath/invite friends.svg';
+  static const String logout = '$imagepath/logout.svg';
+  static const String arrowGoRight = '$imagepath/Right Detail.svg';
+  static const String changeLanguage = '$imagepath/settings.svg';
 }
 
 class JsonAssets {

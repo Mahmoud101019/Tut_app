@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, prefer_collection_literals
+
 import 'package:tut_app/data/network/error_handler.dart';
 import 'package:tut_app/data/response/responses.dart';
 

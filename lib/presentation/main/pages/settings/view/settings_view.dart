@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tut_app/app/app_prefs.dart';
 import 'package:tut_app/app/di.dart';
@@ -27,10 +29,12 @@ class _SettingsViewState extends State<SettingsView> {
           ///////Change language///////
 
           ListTile(
-            onTap: () {},
+            onTap: () {
+              changeLanguagde();
+            },
             leading: SvgPicture.asset(AppAssets.changeLanguage),
             title: Text(
-              AppStrings.changeLanguage,
+              AppStrings.changeLanguage.tr(),
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             trailing: SvgPicture.asset(AppAssets.arrowGoRight),
@@ -42,7 +46,7 @@ class _SettingsViewState extends State<SettingsView> {
             onTap: () {},
             leading: SvgPicture.asset(AppAssets.contactUs),
             title: Text(
-              AppStrings.contactUs,
+              AppStrings.contactUs.tr(),
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             trailing: SvgPicture.asset(AppAssets.arrowGoRight),
@@ -54,7 +58,7 @@ class _SettingsViewState extends State<SettingsView> {
             onTap: () {},
             leading: SvgPicture.asset(AppAssets.inviteFriends),
             title: Text(
-              AppStrings.inviteYourFriends,
+              AppStrings.inviteYourFriends.tr(),
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             trailing: SvgPicture.asset(AppAssets.arrowGoRight),
@@ -68,7 +72,7 @@ class _SettingsViewState extends State<SettingsView> {
             },
             leading: SvgPicture.asset(AppAssets.logout),
             title: Text(
-              AppStrings.logout,
+              AppStrings.logout.tr(),
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             trailing: SvgPicture.asset(AppAssets.arrowGoRight),
@@ -85,5 +89,10 @@ class _SettingsViewState extends State<SettingsView> {
     localDataSource.clearCache();
     //navigator to login Screen
     Navigator.pushReplacementNamed(context, Routes.loginRoute);
+  }
+
+  changeLanguagde() {
+    appPreferences.changeAppLanguage();
+    Phoenix.rebirth(context);
   }
 }

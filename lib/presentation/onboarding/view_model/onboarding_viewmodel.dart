@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, avoid_types_as_parameter_names
 
 import 'dart:async';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:tut_app/domain/model/models.dart';
 import 'package:tut_app/presentation/base/baseviewmodel.dart';
 import 'package:tut_app/presentation/resourses/app_assets_manager.dart';
@@ -65,23 +66,23 @@ class OnBoardingViewModel extends BaseViewModel
 
   List<Sliderobject> _getsliderdata() => [
         Sliderobject(
-          title: AppStrings.onBoardingTitle1,
-          subtitle: AppStrings.onBoardingSubTitle1,
+          title: AppStrings.onBoardingTitle1.tr(),
+          subtitle: AppStrings.onBoardingSubTitle1.tr(),
           image: AppAssets.onboarding1,
         ),
         Sliderobject(
-          title: AppStrings.onBoardingTitle2,
-          subtitle: AppStrings.onBoardingSubTitle2,
+          title: AppStrings.onBoardingTitle2.tr(),
+          subtitle: AppStrings.onBoardingSubTitle2.tr(),
           image: AppAssets.onboarding2,
         ),
         Sliderobject(
-          title: AppStrings.onBoardingTitle3,
-          subtitle: AppStrings.onBoardingSubTitle3,
+          title: AppStrings.onBoardingTitle3.tr(),
+          subtitle: AppStrings.onBoardingSubTitle3.tr(),
           image: AppAssets.onboarding3,
         ),
         Sliderobject(
-          title: AppStrings.onBoardingTitle4,
-          subtitle: AppStrings.onBoardingSubTitle4,
+          title: AppStrings.onBoardingTitle4.tr(),
+          subtitle: AppStrings.onBoardingSubTitle4.tr(),
           image: AppAssets.onboarding4,
         ),
       ];

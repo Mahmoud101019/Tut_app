@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -121,8 +122,8 @@ class _SignUpViewState extends State<SignUpView> {
                       keyboardType: TextInputType.name,
                       controller: userNameController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.username,
-                        labelText: AppStrings.username,
+                        hintText: AppStrings.username.tr(),
+                        labelText: AppStrings.username.tr(),
                         errorText: snapshot.data,
                       ),
                     );
@@ -171,8 +172,8 @@ class _SignUpViewState extends State<SignUpView> {
                                 keyboardType: TextInputType.phone,
                                 controller: mobileNumberController,
                                 decoration: InputDecoration(
-                                  hintText: AppStrings.mobileNumber,
-                                  labelText: AppStrings.mobileNumber,
+                                  hintText: AppStrings.mobileNumber.tr(),
+                                  labelText: AppStrings.mobileNumber.tr(),
                                   errorText: snapshot.data,
                                 ),
                               );
@@ -201,8 +202,8 @@ class _SignUpViewState extends State<SignUpView> {
                       keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.emailHint,
-                        labelText: AppStrings.emailHint,
+                        hintText: AppStrings.emailHint.tr(),
+                        labelText: AppStrings.emailHint.tr(),
                         errorText: snapshot.data,
                       ),
                     );
@@ -225,8 +226,8 @@ class _SignUpViewState extends State<SignUpView> {
                       keyboardType: TextInputType.visiblePassword,
                       controller: passwordController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.password,
-                        labelText: AppStrings.password,
+                        hintText: AppStrings.password.tr(),
+                        labelText: AppStrings.password.tr(),
                         errorText: snapshot.data,
                       ),
                     );
@@ -281,7 +282,7 @@ class _SignUpViewState extends State<SignUpView> {
                                 viewmodel.signUp();
                               }
                             : null,
-                        child: const Text(AppStrings.register),
+                        child: Text(AppStrings.register.tr()),
                       ),
                     );
                   },
@@ -299,7 +300,7 @@ class _SignUpViewState extends State<SignUpView> {
                     Navigator.of(context).pop();
                   },
                   child: Text(
-                    AppStrings.alreadyHaveAccount,
+                    AppStrings.alreadyHaveAccount.tr(),
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
@@ -317,8 +318,8 @@ class _SignUpViewState extends State<SignUpView> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Flexible(
-            child: Text(AppStrings.profilePicture),
+          Flexible(
+            child: Text(AppStrings.profilePicture.tr()),
           ),
           Flexible(
             child: StreamBuilder<File>(
@@ -356,7 +357,7 @@ class _SignUpViewState extends State<SignUpView> {
             ListTile(
               trailing: const Icon(Icons.arrow_forward),
               leading: const Icon(Icons.camera),
-              title: const Text(AppStrings.photoGallery),
+              title: Text(AppStrings.photoGallery.tr()),
               onTap: () {
                 imageformgallery();
                 Navigator.of(context).pop();
@@ -365,7 +366,7 @@ class _SignUpViewState extends State<SignUpView> {
             ListTile(
               trailing: const Icon(Icons.arrow_forward),
               leading: const Icon(Icons.camera_alt),
-              title: const Text(AppStrings.photoCamera),
+              title: Text(AppStrings.photoCamera.tr()),
               onTap: () {
                 imageformCamera();
                 Navigator.of(context).pop();

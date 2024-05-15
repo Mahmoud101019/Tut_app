@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tut_app/app/di.dart';
 import 'package:tut_app/domain/model/models.dart';
@@ -55,9 +56,9 @@ class _HomeViewState extends State<HomeView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             getbannerWidget(snapshot.data?.banners),
-            getSection(AppStrings.services),
+            getSection(AppStrings.services.tr()),
             getServicesWidget(snapshot.data?.services),
-            getSection(AppStrings.stores),
+            getSection(AppStrings.stores.tr()),
             getStoresWidget(snapshot.data?.stores),
           ],
         );
@@ -91,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
             )
             .toList(),
         options: CarouselOptions(
-          height: AppSize.s90,
+          height: AppSize.s180,
           autoPlay: true,
           enableInfiniteScroll: true,
           enlargeCenterPage: true,

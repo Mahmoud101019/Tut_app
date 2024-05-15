@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tut_app/app/constans.dart';
 import 'package:tut_app/presentation/common/state_renderer/state_renderer.dart';
@@ -18,7 +19,7 @@ class LoadingState extends FlowState {
     String message = AppStrings.loading,
   });
   @override
-  String getMessage() => message ?? AppStrings.loading;
+  String getMessage() => message ?? AppStrings.loading.tr();
 
   @override
   StateRendererType getStateRendererType() => stateRendererType;
@@ -35,7 +36,7 @@ class ErrorState extends FlowState {
     required this.message,
   });
   @override
-  String getMessage() => message;
+  String getMessage() => message.tr();
 
   @override
   StateRendererType getStateRendererType() => stateRendererType;
@@ -46,7 +47,7 @@ class ErrorState extends FlowState {
 class ContentState extends FlowState {
   ContentState();
   @override
-  String getMessage() => Constants.empty;
+  String getMessage() => Constants.empty.tr();
 
   @override
   StateRendererType getStateRendererType() => StateRendererType.contentState;
@@ -60,7 +61,7 @@ class EmptyState extends FlowState {
   EmptyState({required this.message});
 
   @override
-  String getMessage() => message;
+  String getMessage() => message.tr();
 
   @override
   StateRendererType getStateRendererType() =>
@@ -89,7 +90,7 @@ extension FlowStateextension on FlowState {
         {
           if (getStateRendererType() == StateRendererType.popupLoadingState) {
             //Show Popup Loading
-            showPopupDialog(context, getStateRendererType(), getMessage());
+            showPopupDialog(context, getStateRendererType(), getMessage().tr());
             //Show Content Ui of Tha Screen
             return contentScreenWidget;
           } else {
@@ -97,7 +98,7 @@ extension FlowStateextension on FlowState {
             return StateRenderer(
               retryactionFunction: retryactionFunction,
               stateRendererType: getStateRendererType(),
-              msg: getMessage(),
+              msg: getMessage().tr(),
             );
           }
         }
@@ -106,7 +107,7 @@ extension FlowStateextension on FlowState {
           dismissDialog(context);
           if (getStateRendererType() == StateRendererType.popupErrorState) {
             //Show Popup Error
-            showPopupDialog(context, getStateRendererType(), getMessage());
+            showPopupDialog(context, getStateRendererType(), getMessage().tr());
             //Show Content Ui of Tha Screen
             return contentScreenWidget;
           } else {
@@ -114,7 +115,7 @@ extension FlowStateextension on FlowState {
             return StateRenderer(
               retryactionFunction: retryactionFunction,
               stateRendererType: getStateRendererType(),
-              msg: getMessage(),
+              msg: getMessage().tr(),
             );
           }
         }
@@ -123,7 +124,7 @@ extension FlowStateextension on FlowState {
           return StateRenderer(
             retryactionFunction: () {},
             stateRendererType: getStateRendererType(),
-            msg: getMessage(),
+            msg: getMessage().tr(),
           );
         }
       case ContentState:
@@ -137,8 +138,8 @@ extension FlowStateextension on FlowState {
           showPopupDialog(
             context,
             StateRendererType.popupSuccess,
-            getMessage(),
-            title: AppStrings.success,
+            getMessage().tr(),
+            title: AppStrings.success.tr(),
           );
           return contentScreenWidget;
         }
@@ -166,7 +167,7 @@ extension FlowStateextension on FlowState {
       (_) => showDialog(
         context: context,
         builder: (BuildContext context) => StateRenderer(
-            msg: message,
+            msg: message.tr(),
             retryactionFunction: () {},
             stateRendererType: stateRendererType),
       ),

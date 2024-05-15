@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:tut_app/app/constans.dart';
 import 'package:tut_app/app/finc.dart';
 import 'package:tut_app/domain/usecase/signup_use_case.dart';
@@ -193,7 +194,7 @@ class SignUpViewModel extends BaseViewModel
 
   @override
   Stream<String?> get outPutErrorUserName => outPutIsUserNameValid.map(
-      (isUserNameValid) => isUserNameValid ? null : AppStrings.userNameInvalid);
+      (isUserNameValid) => isUserNameValid ? null : AppStrings.userNameInvalid.tr());
 
   ////////////////////////////Email Output/////////////////////////////////////
 
@@ -202,8 +203,8 @@ class SignUpViewModel extends BaseViewModel
       emailstreamController.stream.map((email) => isEmailValid(email));
 
   @override
-  Stream<String?> get outPutErrorEmail => outPutIsEmailValid
-      .map((isEmailvalid) => isEmailvalid ? null : AppStrings.invalidEmail);
+  Stream<String?> get outPutErrorEmail => outPutIsEmailValid.map(
+      (isEmailvalid) => isEmailvalid ? null : AppStrings.invalidEmail.tr());
 
   ////////////////////////////Mobile Output/////////////////////////////////////
 
@@ -215,7 +216,7 @@ class SignUpViewModel extends BaseViewModel
   @override
   Stream<String?> get outPutErrorMobileNumber =>
       outPutIsMobileNumberValid.map((isMobileValidValid) =>
-          isMobileValidValid ? null : AppStrings.mobileNumberInvalid);
+          isMobileValidValid ? null : AppStrings.mobileNumberInvalid.tr());
 
   ////////////////////////////Password Output/////////////////////////////////////
 
@@ -226,7 +227,7 @@ class SignUpViewModel extends BaseViewModel
   @override
   Stream<String?> get outPutErrorPassword =>
       outPutIsPasswordValid.map((isPasswordValidValid) =>
-          isPasswordValidValid ? null : AppStrings.passwordInvalid);
+          isPasswordValidValid ? null : AppStrings.passwordInvalid.tr());
 
   ////////////////////////////Profile Picture Output/////////////////////////////////////
 

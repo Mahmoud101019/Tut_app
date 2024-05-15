@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tut_app/presentation/resourses/app_assets_manager.dart';
@@ -55,7 +56,7 @@ class StateRenderer extends StatelessWidget {
           [
             getAnimatedImage(JsonAssets.error),
             getMsg(msg),
-            getRetryButton(AppStrings.ok, context),
+            getRetryButton(AppStrings.ok.tr(), context),
           ],
         );
       case StateRendererType.popupSuccess:
@@ -63,7 +64,7 @@ class StateRenderer extends StatelessWidget {
           getAnimatedImage(JsonAssets.success),
           getMsg(title),
           getMsg(msg),
-          getRetryButton(AppStrings.ok, context),
+          getRetryButton(AppStrings.ok.tr(), context),
         ]);
       case StateRendererType.fullScreenLoadingState:
         return getItemsColumn(
@@ -77,7 +78,7 @@ class StateRenderer extends StatelessWidget {
           [
             getAnimatedImage(JsonAssets.error),
             getMsg(msg),
-            getRetryButton(AppStrings.retryAgain, context),
+            getRetryButton(AppStrings.retryAgain.tr(), context),
           ],
         );
       case StateRendererType.fullScreenEmptyState:
